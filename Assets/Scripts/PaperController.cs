@@ -15,7 +15,6 @@ public class PaperController : MonoBehaviour
 	public List<GameObject> papers = new();
 	public float movementDelay = 0.25f;
 
-
 	private void Update()
 	{
 		if (Input.GetMouseButton(0))
@@ -36,11 +35,12 @@ public class PaperController : MonoBehaviour
         other.transform.localPosition = newPos;
         papers.Add(other);
         StartCoroutine(ScalePapers());
+        GameController.instance.SetScore(1);
     }
 
     public IEnumerator ScalePapers()
     {
-        for (int i = papers.Count - 1; i > 0; i--)
+        for (int i = papers.Count - 1; i >= 0; i--)
         {
             int index = i;
             Vector3 scale = Vector3.one * 1.5f;
@@ -49,10 +49,8 @@ public class PaperController : MonoBehaviour
             yield return new WaitForSeconds(.05f);
         }
     }
-
     public void MoveListElements()
     {
-        Debug.Log("çalýþtý");
         for (int i = 1; i < papers.Count; i++)
         {
             Vector3 pos = papers[i].transform.localPosition;
@@ -60,8 +58,6 @@ public class PaperController : MonoBehaviour
             papers[i].transform.DOLocalMove(pos, movementDelay);
         }
     }
-
-
     public void MoveOrigin()
     {
         for (int i = 1; i < papers.Count; i++)
