@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class PlayerController : MonoBehaviour
     public int collectibleDegeri;
     public bool xVarMi = true;
     public bool collectibleVarMi = true;
+    public List<GameObject> papers = new();
+    public float movementDelay = 0.25f;
 
 
     private void Awake()
     {
         if (instance == null) instance = this;
-        //else Destroy(this);
+        else Destroy(this);
     }
 
     void Start()
@@ -23,11 +26,50 @@ public class PlayerController : MonoBehaviour
         StartingEvents();
     }
 
-    /// <summary>
-    /// Playerin collider olaylari.. collectible, engel veya finish noktasi icin. Burasi artirilabilir.
-    /// elmas icin veya baska herhangi etkilesimler icin tag ekleyerek kontrol dongusune eklenir.
-    /// </summary>
-    /// <param name="other"></param>
+    public void StackPaper(GameObject other, int index)
+	{
+        other.transform.parent = transform;
+        Vector3 newPos = papers[index].transform.localPosition;
+        newPos.z += 1;
+        other.transform.localPosition = newPos;
+        papers.Add(other);
+        StartCoroutine(ScalePapers());
+	}
+
+    public IEnumerator ScalePapers()
+	{
+		for (int i = papers.Count-1; i > 0; i--)
+		{
+            int index = i;
+            Vector3 scale = Vector3.one * 1.5f;
+            papers[index].transform.DOScale(scale, 0.1f).OnComplete(() => 
+            papers[index].transform.DOScale(new Vector3(1, 1, 1), 0.1f));
+            yield return new WaitForSeconds(.05f);
+		}
+	}
+
+    public void MoveListElements()
+	{
+        Debug.Log("çalıştı");
+        for (int i = 1; i < papers.Count; i++)
+		{           
+            Vector3 pos = papers[i].transform.localPosition;
+            pos.x = papers[i - 1].transform.localPosition.x;
+            papers[i].transform.DOLocalMove(pos,movementDelay);
+		}
+	}
+
+
+    public void MoveOrigin()
+	{
+        for (int i = 1; i < papers.Count; i++)
+        {
+            Vector3 pos = papers[i].transform.localPosition;
+            pos.x = papers[0].transform.localPosition.x;
+            papers[i].transform.DOLocalMove(pos, movementDelay*3);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -62,14 +104,22 @@ public class PlayerController : MonoBehaviour
             // normal de bu kodu x ler hesaplandıktan sonra çağıracağız. Ve bu kod çağrıldığında da kazanılan puanlar animasyonlu şekilde artacak..
 
             
-        }
+        }//else if (other.CompareTag("paper"))
+        //{
+        //    if (!papers.Contains(other.gameObject))
+        //    {
+        //        other.GetComponent<Collider>().isTrigger = false;
+        //        other.gameObject.tag = "Untagged";
+        //        other.gameObject.AddComponent<PaperController>();
+        //        other.gameObject.AddComponent<Rigidbody>();
+        //        other.GetComponent<Rigidbody>().isKinematic = true;
+        //        StackPaper(other.gameObject, papers.Count - 1);
+        //    }
+        //}
 
     }
 
 
-    /// <summary>
-    /// Bu fonksiyon her level baslarken cagrilir. 
-    /// </summary>
     public void StartingEvents()
     {
 

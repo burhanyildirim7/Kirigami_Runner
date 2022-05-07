@@ -12,6 +12,8 @@ public class SwerveMovement : MonoBehaviour
 
     [SerializeField] private float _radius;
 
+    public GameObject firstPaper;
+
     Vector3 centerPosition;
 
     private void Awake()
@@ -24,12 +26,8 @@ public class SwerveMovement : MonoBehaviour
         if (GameController.instance.isContinue == true)
         {
             centerPosition = _getPoint.transform.position;
-
-
             float swerveAmount = Time.deltaTime * swerveSpeed * _swerveInputSystem.MoveFactorX;
-
-            transform.Translate(swerveAmount, 0, 0);
-
+            firstPaper.transform.localPosition = new Vector3(firstPaper.transform.localPosition.x +  swerveAmount,1,0);
 
             float distance = Vector3.Distance(transform.position, centerPosition);
 
@@ -38,6 +36,7 @@ public class SwerveMovement : MonoBehaviour
                 Vector3 fromOriginToObject = transform.position - centerPosition;
                 fromOriginToObject *= _radius / distance;
                 transform.position = centerPosition + fromOriginToObject;
+                
             }
         }
        

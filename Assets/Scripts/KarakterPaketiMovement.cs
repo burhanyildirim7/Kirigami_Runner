@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class KarakterPaketiMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    public float moveSpeed = 5f;
 
-    void Start()
-    {
-     
-    }
-
-
-    void FixedUpdate()
-    {
-        if (GameController.instance.isContinue == true)
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * _speed);
+	private void Update()
+	{
+		if (GameController.instance.isContinue)
+		{
+            transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
         }
-        else
-        {
-
-        }
-        
-    }
-
+	}
 }

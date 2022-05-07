@@ -18,6 +18,7 @@ public class SwerveInputSystem : MonoBehaviour
         {
             _moveFactorX = Input.mousePosition.x - _lastFrameFingerPositionX;
             _lastFrameFingerPositionX = Input.mousePosition.x;
+          
         }
         else if (Input.GetMouseButtonUp(0))
         {

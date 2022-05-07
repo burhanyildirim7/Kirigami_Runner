@@ -5,14 +5,13 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     
-    private GameObject Player;
+    public GameObject Player;
 
     Vector3 aradakiFark;
 
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
         aradakiFark = transform.position - Player.transform.position;
     }
 
