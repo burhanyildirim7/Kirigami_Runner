@@ -26,15 +26,25 @@ public class GameController : MonoBehaviour
 
     public void SetScore(int eklenecekScore)
 	{
+        score += eklenecekScore;
         //if(PlayerController.instance.collectibleVarMi) score += eklenecekScore;
 
     }
 
     public void ScoreCarp(int katsayi)
 	{
-        if (PlayerController.instance.xVarMi) score *= katsayi;
-        else score = 1 * score;
+        //if (PlayerController.instance.xVarMi) score *= katsayi;
+        //else
+        score = 1 * score;
         PlayerPrefs.SetInt("totalScore", PlayerPrefs.GetInt("totalScore") + score);
     }
+
+    public void FinishGame()
+	{
+        Debug.Log("FINISH GAME");
+        isContinue = false;
+        ScoreCarp(7);
+        UIController.instance.ActivateWinScreen();
+	}
 
 }

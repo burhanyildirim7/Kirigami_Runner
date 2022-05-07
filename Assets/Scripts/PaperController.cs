@@ -17,18 +17,19 @@ public class PaperController : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetMouseButton(0))
+		if (Input.GetMouseButton(0) && GameController.instance.isContinue)
 		{
             MoveListElements();
 		}
 
-		if (Input.GetMouseButtonUp(0))
+		if (Input.GetMouseButtonUp(0) && GameController.instance.isContinue)
 		{
             MoveOrigin();
 		}
 	}
 	public void StackPaper(GameObject other, int index)
     {
+       
         other.transform.parent = transform;
         Vector3 newPos = papers[index].transform.localPosition;
         newPos.z += 1;
@@ -67,4 +68,13 @@ public class PaperController : MonoBehaviour
             papers[i].transform.DOLocalMove(pos, movementDelay * 3);
         }
     }
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("finish"))
+		{
+            Destroy(other.gameObject);
+            GameController.instance.FinishGame();
+		}
+	}
 }

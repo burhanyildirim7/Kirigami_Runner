@@ -67,6 +67,7 @@ public class UIController : MonoBehaviour
     // NEXT LEVEL TUSUNA BASILDIGINDA... WIN EKRANINDAKI BUTON
     public void NextLevelButtonClick()
     {
+        Debug.Log("next level button");
         SetTapToStartScoreText();
         TapToStartPanel.SetActive(true);
         WinPanel.SetActive(false);
@@ -125,8 +126,8 @@ public class UIController : MonoBehaviour
         int sayac = 0;
         while (sayac < GameController.instance.score)
         {
-            sayac += PlayerController.instance.collectibleDegeri;
-            if (sayac % 2 * PlayerController.instance.collectibleDegeri == 0)
+            sayac += 1;
+            if (sayac % 2 * 1 == 0)
             {
                 GameObject effectObj = Instantiate(winScreenEffectObject, new Vector3(144, 400, 0), Quaternion.identity, winScreenCoinImage.transform);
                 effectObj.transform.localPosition = new Vector3(144, 300, 0);

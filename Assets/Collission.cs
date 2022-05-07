@@ -21,29 +21,32 @@ public class Collission : MonoBehaviour
 		}
 		else if (other.CompareTag("katla"))
 		{
-			GetComponent<Collider>().enabled = false;
-			StartCoroutine(OpenCollider());
+			//GetComponent<Collider>().enabled = false;
+			//StartCoroutine(OpenCollider());
 			if (GetComponent<Paper>().type == 0)
 			{
-				GetComponent<Collider>().enabled = false;
-				StartCoroutine(OpenCollider());
+				//GetComponent<Collider>().enabled = false;
+				//StartCoroutine(OpenCollider());
 				Debug.Log("katlandi 1 ");
 				GetComponent<Paper>().type = 1;
 				GetComponent<Paper>().paperObject1.GetComponent<Animator>().SetTrigger("katla");
+				GameController.instance.SetScore(1);
 			}
 			else if (GetComponent<Paper>().type == 1)
 			{
-				GetComponent<Collider>().enabled = false;
-				StartCoroutine(OpenCollider());
+				//GetComponent<Collider>().enabled = false;
+				//StartCoroutine(OpenCollider());
 				Debug.Log("katlandi 2 ");
 				GetComponent<Paper>().type = 2;
+				GameController.instance.SetScore(1);
 			}
 			else if (GetComponent<Paper>().type == 2)
 			{
-				GetComponent<Collider>().enabled = false;
-				StartCoroutine(OpenCollider());
+				//GetComponent<Collider>().enabled = false;
+				//StartCoroutine(OpenCollider());
 				Debug.Log("katlandi 3 ");
 				GetComponent<Paper>().type = 3;
+				GameController.instance.SetScore(1);
 			}
 		}
 		else if (other.CompareTag("kes"))
@@ -52,6 +55,7 @@ public class Collission : MonoBehaviour
 			{
 				Debug.Log("kesildi");
 				GetComponent<Paper>().kesildiMi = true;
+				GameController.instance.SetScore(1);
 			}
 
 		}
@@ -61,6 +65,7 @@ public class Collission : MonoBehaviour
 			{
 				Debug.Log("simlendi");
 				GetComponent<Paper>().simlendiMi = true;
+				GameController.instance.SetScore(1);
 			}
 		}
 		else if (other.CompareTag("sus") && GetComponent<Paper>().kesildiMi)
@@ -69,6 +74,7 @@ public class Collission : MonoBehaviour
 			{
 				Debug.Log("suslendi");
 				GetComponent<Paper>().suslendiMi = true;
+				GameController.instance.SetScore(1);
 			}
 		}
 

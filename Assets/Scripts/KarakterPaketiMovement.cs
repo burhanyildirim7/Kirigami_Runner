@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class KarakterPaketiMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+	public static KarakterPaketiMovement instance;
+	private void Awake()
+	{
+		if (instance == null) instance = this;
+	}
+
+	public float moveSpeed = 5f;
 
 	private void Update()
 	{
