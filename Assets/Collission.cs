@@ -29,7 +29,7 @@ public class Collission : MonoBehaviour
 				//StartCoroutine(OpenCollider());
 				Debug.Log("katlandi 1 ");
 				GetComponent<Paper>().type = 1;
-				GetComponent<Paper>().paperObject1.GetComponent<Animator>().SetTrigger("katla");
+				GetComponent<Paper>().paperObject1.GetComponent<Animator>().SetTrigger("katla1");
 				GameController.instance.SetScore(1);
 			}
 			else if (GetComponent<Paper>().type == 1)
@@ -38,6 +38,7 @@ public class Collission : MonoBehaviour
 				//StartCoroutine(OpenCollider());
 				Debug.Log("katlandi 2 ");
 				GetComponent<Paper>().type = 2;
+				GetComponent<Paper>().paperObject1.GetComponent<Animator>().SetTrigger("katla2");
 				GameController.instance.SetScore(1);
 			}
 			else if (GetComponent<Paper>().type == 2)
@@ -46,6 +47,7 @@ public class Collission : MonoBehaviour
 				//StartCoroutine(OpenCollider());
 				Debug.Log("katlandi 3 ");
 				GetComponent<Paper>().type = 3;
+				GetComponent<Paper>().paperObject1.GetComponent<Animator>().SetTrigger("katla3");
 				GameController.instance.SetScore(1);
 			}
 		}
