@@ -32,7 +32,7 @@ public class PaperController : MonoBehaviour
        
         other.transform.parent = transform;
         Vector3 newPos = papers[index].transform.localPosition;
-        newPos.z += 1;
+        newPos.z += 1.1f;
         other.transform.localPosition = newPos;
         papers.Add(other);
         StartCoroutine(ScalePapers());
