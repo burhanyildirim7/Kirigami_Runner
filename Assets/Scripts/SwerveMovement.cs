@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SwerveMovement : MonoBehaviour
 {
+    public static SwerveMovement instance;
+
     private SwerveInputSystem _swerveInputSystem;
 
     [SerializeField] private float swerveSpeed = 0.5f;
@@ -19,6 +21,8 @@ public class SwerveMovement : MonoBehaviour
     private void Awake()
     {
         _swerveInputSystem = GetComponent<SwerveInputSystem>();
+        if (instance == null) instance = this;
+        else Destroy(this);
     }
 
     private void Update()

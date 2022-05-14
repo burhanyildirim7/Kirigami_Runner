@@ -673,11 +673,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1882522165198169926}
   - component: {fileID: 1882522165198169927}
-  - component: {fileID: 7984056125988841278}
-  - component: {fileID: 552294052700920282}
+  - component: {fileID: 5621862181188161389}
   m_Layer: 0
   m_Name: DuzKagit
-  m_TagString: paper
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -719,20 +718,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &7984056125988841278
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882522165198169928}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.0402565, y: 0.44910443, z: 1}
-  m_Center: {x: 0.0028904676, y: -0.028415859, z: 0}
---- !u!114 &552294052700920282
+--- !u!114 &5621862181188161389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -741,17 +727,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1882522165198169928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e0fd3ea1841a1409bac33392a66d62, type: 3}
+  m_Script: {fileID: 11500000, guid: 00d76eb3367f8f341b8dd372accc38cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  paperObject1: {fileID: 0}
-  paperObject2: {fileID: 0}
-  paperObject3: {fileID: 0}
-  hazirMi: 0
-  kesildiMi: 0
-  simlendiMi: 0
-  suslendiMi: 0
 --- !u!1 &1882522165231964174
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,9 @@ public class PaperController : MonoBehaviour
 		if (instance == null) instance = this;
 	}
 
+
+    public GameObject kagitTip1, kagitTip2, kagitTip3;
+
 	public List<GameObject> papers = new();
 	public float movementDelay = 0.25f;
 
@@ -32,7 +35,10 @@ public class PaperController : MonoBehaviour
        
         other.transform.parent = transform;
         Vector3 newPos = papers[index].transform.localPosition;
-        newPos.z += 1.1f;
+        float posZ;
+        if (LevelController.instance.kagitType == 1) posZ = 1.1f; 
+        else posZ = 2.5f; 
+        newPos.z += posZ;
         other.transform.localPosition = newPos;
         papers.Add(other);
         StartCoroutine(ScalePapers());

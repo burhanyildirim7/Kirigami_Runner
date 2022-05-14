@@ -10,6 +10,8 @@ public class LevelController : MonoBehaviour
     public List<GameObject> levels = new List<GameObject>();
     private GameObject currentLevelObj;
     public GameObject firstPaper;
+    public int kagitType;
+    public bool kizMi, orumcekMi, kare1Mi, kare2Mi, kartanesi1Mi, kartanesi2Mi;
 
     private void Awake()
     {
@@ -51,6 +53,16 @@ public class LevelController : MonoBehaviour
         }
         UIController.instance.SetLevelText(totalLevelNo);
         currentLevelObj = Instantiate(levels[levelNo - 1], Vector3.zero, Quaternion.identity);
+        LevelAdapter adapter = currentLevelObj.GetComponent<LevelAdapter>();
+        kagitType = adapter.paperType;
+        kizMi = adapter.kizMi;
+        orumcekMi = adapter.orumcekMi;
+        kare1Mi = adapter.kare1Mi;
+        kare2Mi = adapter.kare2Mi;
+        kartanesi1Mi = adapter.kartanesi1Mi;
+        kartanesi2Mi = adapter.kartanesi2Mi;
+        FirstPaperController.instance.ChangePaper();
+        FirstPaperController.instance.ChangeCharacter();
         Elephant.LevelStarted(totalLevelNo);
 
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Collission : MonoBehaviour
 {
-
 	private void OnTriggerEnter(Collider other)
 	{
         if (other.CompareTag("paper"))
@@ -49,15 +48,35 @@ public class Collission : MonoBehaviour
 				GetComponent<Paper>().type = 3;
 				GetComponent<Paper>().paperObject1.GetComponent<Animator>().SetTrigger("katla3");
 				GameController.instance.SetScore(1);
+
 			}
 		}
 		else if (other.CompareTag("kes"))
 		{
 			if (!GetComponent<Paper>().kesildiMi && GetComponent<Paper>().type ==3)
 			{
-				Debug.Log("kesildi");
-				GetComponent<Paper>().kesildiMi = true;
-				GameController.instance.SetScore(1);
+				if(GetComponent<Paper>().kes == 0)
+				{
+					Debug.Log("kesildi 1");
+					GetComponent<Paper>().kes = 1;
+					GetComponent<Paper>().KesParca1.SetActive(false);
+					GameController.instance.SetScore(1);
+				}
+				else if (GetComponent<Paper>().kes == 1)
+				{
+					Debug.Log("kesildi 2");
+					GetComponent<Paper>().kes = 2;
+					GetComponent<Paper>().KesParca2.SetActive(false);
+					GameController.instance.SetScore(1);
+				}
+				else if (GetComponent<Paper>().kes == 2)
+				{
+					Debug.Log("kesildi 3");
+					GetComponent<Paper>().kes = 3;
+					GetComponent<Paper>().kesildiMi = true;
+					GetComponent<Paper>().KesParca3.SetActive(false);
+					GameController.instance.SetScore(1);
+				}
 			}
 
 		}
