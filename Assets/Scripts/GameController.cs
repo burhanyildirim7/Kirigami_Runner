@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
 
     [HideInInspector] public bool isContinue;  // ayrintilar icin beni oku 19. satirdan itibaren bak
 
+    public int scoreCarpani;
+
 
 	private void Awake()
 	{
@@ -43,7 +45,8 @@ public class GameController : MonoBehaviour
 	{
         Debug.Log("FINISH GAME");
         isContinue = false;
-        ScoreCarp(7);
+        if (scoreCarpani == 0) scoreCarpani = 1;
+        ScoreCarp(scoreCarpani);
         UIController.instance.ActivateWinScreen();
 	}
 

@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 5776497669270547630}
+  effect: {fileID: 6379043008960322722, guid: f4c9383eca9b30449b795b3bbbb6de6e, type: 3}
 --- !u!65 &3010625444674211872
 BoxCollider:
   m_ObjectHideFlags: 0

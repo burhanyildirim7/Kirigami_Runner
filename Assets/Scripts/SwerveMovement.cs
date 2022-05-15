@@ -29,17 +29,17 @@ public class SwerveMovement : MonoBehaviour
     {
         if (GameController.instance.isContinue == true)
         {
-            centerPosition = _getPoint.transform.position;
+            centerPosition = _getPoint.transform.localPosition;
             float swerveAmount = Time.deltaTime * swerveSpeed * _swerveInputSystem.MoveFactorX;
             firstPaper.transform.localPosition = new Vector3(firstPaper.transform.localPosition.x +  swerveAmount,1,0);
 
-            float distance = Vector3.Distance(transform.position, centerPosition);
+            float distance = Vector3.Distance(firstPaper.transform.localPosition, centerPosition);
 
             if (distance > _radius)
             {
-                Vector3 fromOriginToObject = transform.position - centerPosition;
+                Vector3 fromOriginToObject = firstPaper.transform.localPosition - centerPosition;
                 fromOriginToObject *= _radius / distance;
-                transform.position = centerPosition + fromOriginToObject;
+                firstPaper.transform.localPosition = centerPosition + fromOriginToObject;
                 
             }
         }

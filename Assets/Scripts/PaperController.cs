@@ -6,7 +6,7 @@ using DG.Tweening;
 public class PaperController : MonoBehaviour
 {
 	public static PaperController instance;
-
+    public GameObject tozEfecti;
 	private void Awake()
 	{
 		if (instance == null) instance = this;
@@ -14,7 +14,7 @@ public class PaperController : MonoBehaviour
 
 
     public GameObject kagitTip1, kagitTip2, kagitTip3;
-
+    public int hazirKagitSayisi;
 	public List<GameObject> papers = new();
 	public float movementDelay = 0.25f;
 
@@ -52,7 +52,7 @@ public class PaperController : MonoBehaviour
         {
             int index = i;
             Vector3 scale = Vector3.one * 1.5f;
-            papers[index].transform.DOScale(scale, 0.1f).OnComplete(() =>
+            if(index >= 0)papers[index].transform.DOScale(scale, 0.1f).OnComplete(() =>
             papers[index].transform.DOScale(new Vector3(1, 1, 1), 0.1f));
             yield return new WaitForSeconds(.05f);
         }
@@ -84,4 +84,27 @@ public class PaperController : MonoBehaviour
             GameController.instance.FinishGame();
 		}
 	}
+
+    public void SiradakiKagidiAc()
+	{
+        bool bitti = true;
+        foreach(GameObject obj in papers)
+		{        
+			if (obj.GetComponent<Paper>().kesildiMi)
+			{
+                bitti = false;
+                obj.GetComponent<Paper>().paperObject2.SetActive(false);
+                obj.GetComponent<Paper>().paperObject3.SetActive(true);
+                hazirKagitSayisi--;
+                //if (hazirKagitSayisi == 0) GameController.instance.FinishGame();
+                return;
+			}
+            
+        }
+
+        if (bitti) GameController.instance.FinishGame();
+	}
+
+
+
 }

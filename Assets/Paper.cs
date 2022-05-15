@@ -9,7 +9,7 @@ public class Paper : MonoBehaviour
     public GameObject paperObject1;
     public GameObject paperObject2;
     public GameObject paperObject3;
-    public bool hazirMi,kesildiMi,simlendiMi,suslendiMi;
+    public bool acildiMi,kesildiMi,simlendiMi,suslendiMi;
     public GameObject KesParca1, KesParca2, KesParca3;
     
 }
