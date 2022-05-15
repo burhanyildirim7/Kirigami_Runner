@@ -80,6 +80,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 856983847778221513}
     m_Modifications:
+    - target: {fileID: 658038598938403965, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d1f3fcf0e2274849bcc3966310d5731, type: 2}
+    - target: {fileID: 820214893609904846, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d1f3fcf0e2274849bcc3966310d5731, type: 2}
+    - target: {fileID: 1136467981986765835, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d1f3fcf0e2274849bcc3966310d5731, type: 2}
+    - target: {fileID: 1444704516400538017, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d1f3fcf0e2274849bcc3966310d5731, type: 2}
+    - target: {fileID: 1826658690790083075, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d1f3fcf0e2274849bcc3966310d5731, type: 2}
+    - target: {fileID: 2461455890789729407, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d1f3fcf0e2274849bcc3966310d5731, type: 2}
+    - target: {fileID: 6114705440125658102, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 02a11778833c17f46ba0f6da23f11043, type: 2}
+    - target: {fileID: 8164818487608221586, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 02a11778833c17f46ba0f6da23f11043, type: 2}
     - target: {fileID: 8319714293947301601, guid: 00a1e6d6ac707474f848a38736dffb83, type: 3}
       propertyPath: m_Name
       value: KareKagit2

@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776191492031863816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -69, y: -132, z: 57}
-  m_LocalScale: {x: 130, y: 100, z: 300}
+  m_LocalPosition: {x: -69, y: -154, z: 57}
+  m_LocalScale: {x: 150, y: 150, z: 300}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5936040560445901147}
@@ -157,8 +157,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cae988eee3f5b234eb0a95a2f3d7359e, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2bb22ef2d74440444b1aa6e3999f8d24, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -177,9 +177,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6298605710746482135}
+  - component: {fileID: 2515703067452344101}
   m_Layer: 0
   m_Name: DoorX
-  m_TagString: Untagged
+  m_TagString: katla
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,6 +202,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2515703067452344101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531673682221523973}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.46156, y: 5.1044188, z: 1}
+  m_Center: {x: -1.7307804, y: 2.0522087, z: 0}
 --- !u!1 &3225374651481455993
 GameObject:
   m_ObjectHideFlags: 0
