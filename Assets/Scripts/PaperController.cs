@@ -35,9 +35,10 @@ public class PaperController : MonoBehaviour
        
         other.transform.parent = transform;
         Vector3 newPos = papers[index].transform.localPosition;
-        float posZ;
-        if (LevelController.instance.kagitType == 1) posZ = 1.1f; 
-        else posZ = 2.5f; 
+        float posZ = 1.1f;
+        if (LevelController.instance.kagitType == 1) posZ = 1.1f;
+        else if (LevelController.instance.kagitType == 2) posZ = 2.5f;
+        else if (LevelController.instance.kagitType == 3) posZ = 3.2f;
         newPos.z += posZ;
         other.transform.localPosition = newPos;
         papers.Add(other);

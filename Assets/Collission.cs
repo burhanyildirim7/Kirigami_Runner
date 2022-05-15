@@ -61,6 +61,7 @@ public class Collission : MonoBehaviour
 					GetComponent<Paper>().kes = 1;
 					GetComponent<Paper>().KesParca1.SetActive(false);
 					GameController.instance.SetScore(1);
+					other.GetComponent<PressAnimation>().Press();
 				}
 				else if (GetComponent<Paper>().kes == 1)
 				{
@@ -68,6 +69,7 @@ public class Collission : MonoBehaviour
 					GetComponent<Paper>().kes = 2;
 					GetComponent<Paper>().KesParca2.SetActive(false);
 					GameController.instance.SetScore(1);
+					other.GetComponent<PressAnimation>().Press();
 				}
 				else if (GetComponent<Paper>().kes == 2)
 				{
@@ -76,6 +78,7 @@ public class Collission : MonoBehaviour
 					GetComponent<Paper>().kesildiMi = true;
 					GetComponent<Paper>().KesParca3.SetActive(false);
 					GameController.instance.SetScore(1);
+					other.GetComponent<PressAnimation>().Press();
 				}
 			}
 

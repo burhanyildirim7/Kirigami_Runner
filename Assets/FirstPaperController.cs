@@ -29,21 +29,21 @@ public class FirstPaperController : MonoBehaviour
 		{
 			transform.GetChild(0).gameObject.SetActive(true);
 			transform.GetChild(1).gameObject.SetActive(false);
-			//transform.GetChild(2).gameObject.SetActive(false);
+			transform.GetChild(2).gameObject.SetActive(false);
 			transform.GetComponent<Paper>().paperObject1 = transform.GetChild(0).gameObject;
 		}
 		else if(LevelController.instance.kagitType == 2)
 		{
 			transform.GetChild(0).gameObject.SetActive(false);
 			transform.GetChild(1).gameObject.SetActive(true);
-			//transform.GetChild(2).gameObject.SetActive(false);
+			transform.GetChild(2).gameObject.SetActive(false);
 			transform.GetComponent<Paper>().paperObject1 = transform.GetChild(1).gameObject;
 		}
 		else if (LevelController.instance.kagitType == 3)
 		{
-			transform.GetChild(0).gameObject.SetActive(true);
+			transform.GetChild(0).gameObject.SetActive(false);
 			transform.GetChild(1).gameObject.SetActive(false);
-			//transform.GetChild(2).gameObject.SetActive(false);
+			transform.GetChild(2).gameObject.SetActive(true);
 			transform.GetComponent<Paper>().paperObject1 = transform.GetChild(2).gameObject;
 		}
 	}

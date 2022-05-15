@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.47884, g: 0.8001845, b: 0.90072787, a: 1}
+  m_IndirectSpecularColor: {r: 0.47698158, g: 0.7989754, b: 0.8985044, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -672,6 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  kes: 0
   paperObject1: {fileID: 1882522164608821607}
   paperObject2: {fileID: 0}
   paperObject3: {fileID: 0}
@@ -679,6 +680,9 @@ MonoBehaviour:
   kesildiMi: 0
   simlendiMi: 0
   suslendiMi: 0
+  KesParca1: {fileID: 0}
+  KesParca2: {fileID: 0}
+  KesParca3: {fileID: 0}
 --- !u!1 &955729541
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +905,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab99743c84ad38d46b4d40bc44e38d69, type: 3}
   m_PrefabInstance: {fileID: 1037376093}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1058015521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5125523238042193311, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
+  m_PrefabInstance: {fileID: 4274805299578033094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1058015525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058015521}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005263794, y: 0.0074576177, z: 0.013265324}
+  m_Center: {x: 0.0000040280866, y: 0.00088909053, z: -0.0034132916}
 --- !u!1 &1124119772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3925253dd7451d8449cbe196c34f2ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kagitTip1: {fileID: 0}
+  kagitTip2: {fileID: 0}
+  kagitTip3: {fileID: 0}
   papers:
   - {fileID: 912168666}
   movementDelay: 0.25
@@ -1478,6 +1503,13 @@ MonoBehaviour:
   - {fileID: 2326151854888573912, guid: ab3fdb45381358a42bbb5b36e3904ecb, type: 3}
   - {fileID: 2326151854888573912, guid: ab3fdb45381358a42bbb5b36e3904ecb, type: 3}
   firstPaper: {fileID: 912168666}
+  kagitType: 0
+  kizMi: 0
+  orumcekMi: 0
+  kare1Mi: 0
+  kare2Mi: 0
+  kartanesi1Mi: 0
+  kartanesi2Mi: 0
 --- !u!1 &664173345876672193
 GameObject:
   m_ObjectHideFlags: 0
@@ -5724,9 +5756,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274805299228482831, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5125523238042193311, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
+      propertyPath: m_TagString
+      value: kes
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4544271070839358442, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
+    - {fileID: 6482291356430811536, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
+    - {fileID: 34124852648067249, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
+    - {fileID: 5077469542115958055, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
+    - {fileID: 2854553211258268113, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
+    - {fileID: 6365292580472607721, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
 --- !u!1 &5698147514659654033
 GameObject:
