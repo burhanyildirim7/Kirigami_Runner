@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2342681466245375422}
   - component: {fileID: 7855870771274947143}
+  - component: {fileID: 2344046326781144719}
+  - component: {fileID: 8758265421558664776}
   m_Layer: 0
   m_Name: pressyuvarlak
-  m_TagString: Untagged
+  m_TagString: kes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,3 +89,30 @@ SkinnedMeshRenderer:
     m_Center: {x: 4.656613e-10, y: 9.313226e-10, z: -0.00381765}
     m_Extent: {x: 0.008188987, y: 0.008188987, z: 0.018519202}
   m_DirtyAABB: 0
+--- !u!114 &2344046326781144719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3155106671844540164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8bc5d6c55b99c745a03bc3d6b44e70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 7855870771274947143}
+  effect: {fileID: 6379043008960322722, guid: f4c9383eca9b30449b795b3bbbb6de6e, type: 3}
+--- !u!65 &8758265421558664776
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3155106671844540164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016377972, y: 0.01637797, z: 0.046457767}
+  m_Center: {x: 7.947286e-10, y: 7.9472867e-10, z: -0.008527288}

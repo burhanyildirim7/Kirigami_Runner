@@ -5,6 +5,7 @@ using UnityEngine;
 public class FirstPaperController : MonoBehaviour
 {
 	public static FirstPaperController instance;
+	public GameObject kagitKiz, kagitOrumcek, kagitKare1, kagitKare2, kagitKartane1,KagitKarTane2;
 	public GameObject kiz, orumcek, kare1, kare2, kartane1, kartane2;
 	public GameObject kizKes1, kizKes2, kizKes3;
 	public GameObject orumcekKes1, orumcekKes2, orumcekKes3;
@@ -26,27 +27,64 @@ public class FirstPaperController : MonoBehaviour
 	}
 	public void ChangePaper()
 	{
-		if(LevelController.instance.kagitType == 1)
+		if (LevelController.instance.kizMi)
 		{
-			transform.GetChild(0).gameObject.SetActive(true);
-			transform.GetChild(1).gameObject.SetActive(false);
-			transform.GetChild(2).gameObject.SetActive(false);
-			transform.GetComponent<Paper>().paperObject1 = transform.GetChild(0).gameObject;
+			GameObject first = Instantiate(kagitKiz, transform);
+			transform.GetComponent<Paper>().paperObject1 = first;
 		}
-		else if(LevelController.instance.kagitType == 2)
+		else if (LevelController.instance.orumcekMi)
 		{
-			transform.GetChild(0).gameObject.SetActive(false);
-			transform.GetChild(1).gameObject.SetActive(true);
-			transform.GetChild(2).gameObject.SetActive(false);
-			transform.GetComponent<Paper>().paperObject1 = transform.GetChild(1).gameObject;
+			GameObject first = Instantiate(kagitOrumcek, transform);
+			transform.GetComponent<Paper>().paperObject1 = first;
 		}
-		else if (LevelController.instance.kagitType == 3)
+		else if (LevelController.instance.kare1Mi)
 		{
-			transform.GetChild(0).gameObject.SetActive(false);
-			transform.GetChild(1).gameObject.SetActive(false);
-			transform.GetChild(2).gameObject.SetActive(true);
-			transform.GetComponent<Paper>().paperObject1 = transform.GetChild(2).gameObject;
+			GameObject first = Instantiate(kagitKare1, transform);
+			transform.GetComponent<Paper>().paperObject1 = first;
 		}
+		else if (LevelController.instance.kare2Mi)
+		{
+			GameObject first = Instantiate(kagitKare2, transform);
+			transform.GetComponent<Paper>().paperObject1 = first;
+		}
+		else if (LevelController.instance.kartanesi1Mi)
+		{
+			GameObject first = Instantiate(kagitKartane1, transform);
+			transform.GetComponent<Paper>().paperObject1 = first;
+		}
+		else if (LevelController.instance.kartanesi2Mi)
+		{
+			GameObject first = Instantiate(KagitKarTane2, transform);
+			transform.GetComponent<Paper>().paperObject1 = first;
+		}
+
+		//if (LevelController.instance.kagitType == 1)
+		//{
+		//	GameObject first = Instantiate(kagitDuz,transform);
+		//	transform.GetComponent<Paper>().paperObject1 = first;
+		//	//transform.GetChild(0).gameObject.SetActive(true);
+		//	//transform.GetChild(1).gameObject.SetActive(false);
+		//	//transform.GetChild(2).gameObject.SetActive(false);
+		//	//transform.GetComponent<Paper>().paperObject1 = transform.GetChild(0).gameObject;
+		//}
+		//else if(LevelController.instance.kagitType == 2)
+		//{
+		//	GameObject first = Instantiate(kagitKare1, transform);
+		//	transform.GetComponent<Paper>().paperObject1 = first;
+		//	//transform.GetChild(0).gameObject.SetActive(false);
+		//	//transform.GetChild(1).gameObject.SetActive(true);
+		//	//transform.GetChild(2).gameObject.SetActive(false);
+		//	//transform.GetComponent<Paper>().paperObject1 = transform.GetChild(1).gameObject;
+		//}
+		//else if (LevelController.instance.kagitType == 3)
+		//{
+		//	GameObject first = Instantiate(kagitKare2, transform);
+		//	transform.GetComponent<Paper>().paperObject1 = first;
+		//	//transform.GetChild(0).gameObject.SetActive(false);
+		//	//transform.GetChild(1).gameObject.SetActive(false);
+		//	//transform.GetChild(2).gameObject.SetActive(true);
+		//	//transform.GetComponent<Paper>().paperObject1 = transform.GetChild(2).gameObject;
+		//}
 	}
 
 	public void ChangeCharacter()
@@ -114,7 +152,8 @@ public class FirstPaperController : MonoBehaviour
 
 	public void StartingEvents()
 	{
-		Paper paper = GetComponent<Paper>();
+		Destroy(paper.paperObject1);
+		ChangePaper();
 		paper.paperObject1.SetActive(true);
 		paper.paperObject2.SetActive(false);
 		paper.paperObject3.SetActive(false);
@@ -125,6 +164,10 @@ public class FirstPaperController : MonoBehaviour
 		paper.acildiMi = false;
 		paper.kes = 0;
 		paper.type = 0;
-		paper.paperObject1.GetComponent<Animator>().SetTrigger("Idle");
+		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("Idle");
+		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("katla1");
+		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("katla2");
+		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("katla3");
+		//paper.paperObject1.GetComponent<Animator>().SetTrigger("Idle");
 	}
 }

@@ -104,7 +104,6 @@ public class Collission : MonoBehaviour
 		{
 			Instantiate(PaperController.instance.tozEfecti, transform.position, Quaternion.identity);
 			Debug.Log("ENGELE CARPTIK");
-			//other.GetComponent<Collider>().enabled = false;
 			if(GetComponent<FirstPaperController>())
 			{
 				// OYUN KAYBEDILIYOR...
@@ -115,15 +114,21 @@ public class Collission : MonoBehaviour
 			}
 			else
 			{
-				int index = PaperController.instance.papers.IndexOf(transform.gameObject);
-				DestroyPapers(index);
+				float z = transform.localPosition.z;
+				int count = 0;
+				foreach(GameObject obj in PaperController.instance.papers)
+				{
+					if (obj.transform.localPosition.z >= z) count++;
+				}
+				int adet = PaperController.instance.papers.Count - 1;
+				for (int i = 0; i < count; i++)
+				{
+					GameObject obj = PaperController.instance.papers[adet-i];
+					PaperController.instance.papers.Remove(obj);
+					Destroy(obj);
+				}
 				
 			}		
-			//if (GetComponent<Paper>().kesildiMi)
-			//{
-			//	if (GameController.instance.scoreCarpani > 0) GameController.instance.scoreCarpani--;
-			//	if (PaperController.instance.hazirKagitSayisi > 0) PaperController.instance.hazirKagitSayisi--;
-			//}
 		}
 		else if (other.CompareTag("firstFinish"))
 		{
@@ -143,17 +148,26 @@ public class Collission : MonoBehaviour
 					PaperController.instance.hazirKagitSayisi++;
 					GameController.instance.scoreCarpani++;
 				}
-			}			
+			}
+			
+		}
+
+		if(PaperController.instance.hazirKagitSayisi == 0)
+		{
+			GameController.instance.FinishGame();
 		}
 	}
 
 	void DestroyPapers(int index)
 	{
-
-		while (PaperController.instance.papers.Count > index)
+		int adet = PaperController.instance.papers.Count - index + 1;
+		for (int i = 0; i < adet; i++)
 		{
-			Destroy(PaperController.instance.papers[PaperController.instance.papers.Count - 1]);
-			PaperController.instance.papers.RemoveAt(PaperController.instance.papers.Count-1);			
+			GameObject obj = PaperController.instance.papers[PaperController.instance.papers.Count - 1];
+			PaperController.instance.papers.Remove(obj);
+			Destroy(obj);
+			//Destroy(PaperController.instance.papers[PaperController.instance.papers.Count - 1]);
+			//PaperController.instance.papers.RemoveAt(PaperController.instance.papers.Count - 1);
 		}
 
 	}
