@@ -61,6 +61,7 @@ public class UIController : MonoBehaviour
         TapToStartPanel.SetActive(true);
         LevelController.instance.RestartLevelEvents();
         SetTapToStartScoreText();
+        FirstPaperController.instance.StartingEvents();
     }
 
 
@@ -74,6 +75,7 @@ public class UIController : MonoBehaviour
         GamePanel.SetActive(false);
         LevelController.instance.NextLevelEvents();
         StartCoroutine(StartScreenCoinEffect());
+        FirstPaperController.instance.StartingEvents();
     }
 
 

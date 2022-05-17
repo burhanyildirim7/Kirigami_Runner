@@ -110,6 +110,7 @@ public class Collission : MonoBehaviour
 				// OYUN KAYBEDILIYOR...
 				Debug.Log("GameOver");
 				GameController.instance.isContinue = false;
+				UIController.instance.ActivateLooseScreen();
 				return;
 			}
 			else
@@ -152,8 +153,7 @@ public class Collission : MonoBehaviour
 		while (PaperController.instance.papers.Count > index)
 		{
 			Destroy(PaperController.instance.papers[PaperController.instance.papers.Count - 1]);
-			PaperController.instance.papers.RemoveAt(PaperController.instance.papers.Count-1);
-			
+			PaperController.instance.papers.RemoveAt(PaperController.instance.papers.Count-1);			
 		}
 
 	}

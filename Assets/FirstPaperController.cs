@@ -111,4 +111,20 @@ public class FirstPaperController : MonoBehaviour
 		kartane1.SetActive(false);
 		kartane2.SetActive(false);
 	}
+
+	public void StartingEvents()
+	{
+		Paper paper = GetComponent<Paper>();
+		paper.paperObject1.SetActive(true);
+		paper.paperObject2.SetActive(false);
+		paper.paperObject3.SetActive(false);
+		paper.KesParca1.SetActive(true);
+		paper.KesParca2.SetActive(true);
+		paper.KesParca3.SetActive(true);
+		paper.kesildiMi = false;
+		paper.acildiMi = false;
+		paper.kes = 0;
+		paper.type = 0;
+		paper.paperObject1.GetComponent<Animator>().SetTrigger("Idle");
+	}
 }
