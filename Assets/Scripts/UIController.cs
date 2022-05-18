@@ -50,6 +50,7 @@ public class UIController : MonoBehaviour
         GamePanel.SetActive(true);
         SetLevelText(LevelController.instance.totalLevelNo);
         SetGamePlayScoreText();
+        KarakterPaketiMovement.instance.moveSpeed = 10f;
 
     }
 
@@ -61,7 +62,7 @@ public class UIController : MonoBehaviour
         TapToStartPanel.SetActive(true);
         LevelController.instance.RestartLevelEvents();
         SetTapToStartScoreText();
-        FirstPaperController.instance.StartingEvents();
+        //FirstPaperController.instance.StartingEvents();
     }
 
 
@@ -75,7 +76,7 @@ public class UIController : MonoBehaviour
         GamePanel.SetActive(false);
         LevelController.instance.NextLevelEvents();
         StartCoroutine(StartScreenCoinEffect());
-        FirstPaperController.instance.StartingEvents();
+        
     }
 
 

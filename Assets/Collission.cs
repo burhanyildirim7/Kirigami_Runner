@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Collission : MonoBehaviour
 {
@@ -93,8 +94,8 @@ public class Collission : MonoBehaviour
 		else if (other.CompareTag("xs") && GetComponent<Paper>().kesildiMi && !GetComponent<Paper>().acildiMi)
 		{
 			other.GetComponent<Collider>().enabled = false;
-			GetComponent<Paper>().paperObject2.SetActive(false);
-			GetComponent<Paper>().paperObject3.SetActive(true);
+			//GetComponent<Paper>().paperObject2.SetActive(false);
+			//GetComponent<Paper>().paperObject3.SetActive(true);
 			GetComponent<Paper>().acildiMi = true;
 			PaperController.instance.hazirKagitSayisi--;
 			if (PaperController.instance.hazirKagitSayisi == 0) GameController.instance.FinishGame();
@@ -109,6 +110,7 @@ public class Collission : MonoBehaviour
 				// OYUN KAYBEDILIYOR...
 				Debug.Log("GameOver");
 				GameController.instance.isContinue = false;
+				KarakterPaketiMovement.instance.moveSpeed = 0f;
 				UIController.instance.ActivateLooseScreen();
 				return;
 			}
@@ -133,6 +135,7 @@ public class Collission : MonoBehaviour
 		else if (other.CompareTag("firstFinish"))
 		{
 			other.GetComponent<Collider>().enabled = false;
+			GameController.instance.isContinue = false;
 			ControlPapers();
 		}
 	}
@@ -156,6 +159,10 @@ public class Collission : MonoBehaviour
 		{
 			GameController.instance.FinishGame();
 		}
+		else
+		{
+			StartCoroutine(OpenPapers());
+		}
 	}
 
 	void DestroyPapers(int index)
@@ -177,5 +184,28 @@ public class Collission : MonoBehaviour
 	{
 		yield return new WaitForSeconds(.1f);
 		PaperController.instance.papers.Remove(obj);
+	}
+
+	IEnumerator OpenPapers()
+	{
+		yield return new WaitForSeconds(.2f);
+		float distance = 1;
+		foreach(GameObject obj in PaperController.instance.papers)
+		{
+			Paper tempPaper = obj.GetComponent<Paper>();
+			if (tempPaper.kesildiMi)
+			{
+				tempPaper.paperObject2.SetActive(false);
+				tempPaper.paperObject3.SetActive(true);
+				Vector3 tempScale = obj.transform.localScale;
+				obj.transform.DOScale(tempScale * 2.5f, .3f);
+				obj.transform.localPosition = new Vector3(obj.transform.localPosition.x,obj.transform.localPosition.y,obj.transform.localPosition.z + distance );
+				distance += 2;
+				yield return new WaitForSeconds(.1f);
+			}
+			else{
+				Destroy(obj);
+			}
+		}
 	}
 }

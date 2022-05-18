@@ -21,7 +21,7 @@ public class LevelController : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         totalLevelNo = PlayerPrefs.GetInt("level");
         if (totalLevelNo == 0)
         {
@@ -64,6 +64,7 @@ public class LevelController : MonoBehaviour
         FirstPaperController.instance.ChangePaper();
         FirstPaperController.instance.ChangeCharacter();
         Elephant.LevelStarted(totalLevelNo);
+        FirstPaperController.instance.StartingEvents();
 
     }
 
@@ -90,6 +91,7 @@ public class LevelController : MonoBehaviour
         UIController.instance.SetLevelText(totalLevelNo);
         currentLevelObj = Instantiate(levels[levelNo - 1], Vector3.zero, Quaternion.identity);
         Elephant.LevelStarted(totalLevelNo);
+        FirstPaperController.instance.StartingEvents();
     }
 
     public void RestartLevelEvents()

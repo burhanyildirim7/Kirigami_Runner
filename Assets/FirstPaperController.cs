@@ -154,6 +154,19 @@ public class FirstPaperController : MonoBehaviour
 	{
 		Destroy(paper.paperObject1);
 		ChangePaper();
+		transform.localScale = Vector3.one;
+		kiz.SetActive(false);
+		orumcek.SetActive(false);
+		kare1.SetActive(false);
+		kare2.SetActive(false);
+		kartane1.SetActive(false);
+		kartane2.SetActive(false);
+		kizTam.SetActive(false);
+		orumcekTam.SetActive(false);
+		kare1Tam.SetActive(false);
+		kare2Tam.SetActive(false);
+		kartane1Tam.SetActive(false);
+		kartane2Tam.SetActive(false);
 		paper.paperObject1.SetActive(true);
 		paper.paperObject2.SetActive(false);
 		paper.paperObject3.SetActive(false);

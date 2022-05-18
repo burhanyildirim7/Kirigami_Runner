@@ -10,13 +10,11 @@ public class KarakterPaketiMovement : MonoBehaviour
 		if (instance == null) instance = this;
 	}
 
-	public float moveSpeed = 5f;
+	public float moveSpeed = 0f;
 
 	private void Update()
 	{
-		if (GameController.instance.isContinue)
-		{
+
             transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
-        }
 	}
 }

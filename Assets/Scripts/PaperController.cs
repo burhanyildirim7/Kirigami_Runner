@@ -61,18 +61,26 @@ public class PaperController : MonoBehaviour
     {
         for (int i = 1; i < papers.Count; i++)
         {
-            Vector3 pos = papers[i].transform.localPosition;
-            pos.x = papers[i - 1].transform.localPosition.x;
-            papers[i].transform.DOLocalMove(pos, movementDelay);
+            if(papers[i] != null && papers[i - 1]!= null)
+			{
+                Vector3 pos = papers[i].transform.localPosition;
+                pos.x = papers[i - 1].transform.localPosition.x;
+                papers[i].transform.DOLocalMove(pos, movementDelay);
+            }
+            
         }
     }
     public void MoveOrigin()
     {
+        
         for (int i = 1; i < papers.Count; i++)
         {
-            Vector3 pos = papers[i].transform.localPosition;
-            pos.x = papers[0].transform.localPosition.x;
-            papers[i].transform.DOLocalMove(pos, movementDelay * 3);
+            if (papers[i] != null && papers[0] != null)
+            {
+                Vector3 pos = papers[i].transform.localPosition;
+                pos.x = papers[0].transform.localPosition.x;
+                papers[i].transform.DOLocalMove(pos, movementDelay * 3);
+            }          
         }
     }
 
