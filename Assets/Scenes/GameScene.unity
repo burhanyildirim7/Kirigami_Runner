@@ -623,6 +623,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d9b0972f76775bc45b746e668482b920, type: 3}
   m_PrefabInstance: {fileID: 561704605}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &666529093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2647176578791724450, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+  m_PrefabInstance: {fileID: 1994978672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &666529097 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+  m_PrefabInstance: {fileID: 1994978672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +865,7 @@ Transform:
   - {fileID: 1333797715}
   - {fileID: 1363251753}
   - {fileID: 503212510}
+  - {fileID: 666529097}
   m_Father: {fileID: 2018247888}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -973,6 +984,7 @@ MonoBehaviour:
   KesParca1: {fileID: 0}
   KesParca2: {fileID: 0}
   KesParca3: {fileID: 0}
+  TickObj: {fileID: 666529093}
 --- !u!114 &912168674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,6 +2144,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994317953}
   m_CullTransparentMesh: 0
+--- !u!1001 &1994978672
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 912168667}
+    m_Modifications:
+    - target: {fileID: 2647176578791724450, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_Name
+      value: TickObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647176578791724450, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.094
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346118359515105360, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 528610d3a9cafc64984f821c964f203f, type: 3}
 --- !u!1 &1999370654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,6 +2363,7 @@ MonoBehaviour:
   papers:
   - {fileID: 912168666}
   movementDelay: 0.25
+  distance: 0
 --- !u!114 &2018247891
 MonoBehaviour:
   m_ObjectHideFlags: 0

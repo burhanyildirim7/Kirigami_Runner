@@ -24,7 +24,6 @@ public class PressAnimation : MonoBehaviour
 		float speed = 10f;
 		while (value > 0)
 		{
-			Debug.Log(value);
 			meshRenderer.SetBlendShapeWeight(0, value);
 			value += speed;
 			if (value > 110)

@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
         if (scoreCarpani == 0) scoreCarpani = 1;
         ScoreCarp(scoreCarpani);
         UIController.instance.ActivateWinScreen();
+        PaperController.instance.distance = 0;
 	}
 
 }

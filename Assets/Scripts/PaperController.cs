@@ -17,6 +17,7 @@ public class PaperController : MonoBehaviour
     public int hazirKagitSayisi;
 	public List<GameObject> papers = new();
 	public float movementDelay = 0.25f;
+    public float distance;
 
 	private void Update()
 	{

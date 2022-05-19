@@ -65,6 +65,7 @@ public class Collission : MonoBehaviour
 					GetComponent<Paper>().kes = 3;
 					GetComponent<Paper>().kesildiMi = true;
 					GetComponent<Paper>().KesParca3.SetActive(false);
+					GetComponent<Paper>().TickObj.SetActive(true);
 					GameController.instance.SetScore(1);
 					other.GetComponent<PressAnimation>().Press(transform.position);
 					//perController.instance.hazirKagitSayisi++;
@@ -77,7 +78,6 @@ public class Collission : MonoBehaviour
 		{
 			if (!GetComponent<Paper>().simlendiMi && GetComponent<Paper>().kesildiMi)
 			{
-				Debug.Log("simlendi");
 				GetComponent<Paper>().simlendiMi = true;
 				GameController.instance.SetScore(1);
 			}
@@ -86,17 +86,17 @@ public class Collission : MonoBehaviour
 		{
 			if (!GetComponent<Paper>().suslendiMi)
 			{
-				Debug.Log("suslendi");
 				GetComponent<Paper>().suslendiMi = true;
 				GameController.instance.SetScore(1);
 			}
 		}
 		else if (other.CompareTag("xs") && GetComponent<Paper>().kesildiMi && !GetComponent<Paper>().acildiMi)
 		{
+			ControlPapers();
 			other.GetComponent<Collider>().enabled = false;
 			//GetComponent<Paper>().paperObject2.SetActive(false);
 			//GetComponent<Paper>().paperObject3.SetActive(true);
-			GetComponent<Paper>().acildiMi = true;
+			GetComponent<Paper>().acildiMi = true;			
 			PaperController.instance.hazirKagitSayisi--;
 			if (PaperController.instance.hazirKagitSayisi == 0) GameController.instance.FinishGame();
 			
@@ -104,11 +104,9 @@ public class Collission : MonoBehaviour
 		else if (other.CompareTag("ENGEL"))
 		{
 			Instantiate(PaperController.instance.tozEfecti, transform.position, Quaternion.identity);
-			Debug.Log("ENGELE CARPTIK");
 			if(GetComponent<FirstPaperController>())
 			{
 				// OYUN KAYBEDILIYOR...
-				Debug.Log("GameOver");
 				GameController.instance.isContinue = false;
 				KarakterPaketiMovement.instance.moveSpeed = 0f;
 				UIController.instance.ActivateLooseScreen();
@@ -134,20 +132,51 @@ public class Collission : MonoBehaviour
 		}
 		else if (other.CompareTag("firstFinish"))
 		{
-			other.GetComponent<Collider>().enabled = false;
+			//other.GetComponent<Collider>().enabled = false;
+			//ControlPapers();
+			
 			GameController.instance.isContinue = false;
-			ControlPapers();
+			Paper tempPaper = GetComponent<Paper>();
+			tempPaper.TickObj.SetActive(false);
+			if (tempPaper.kesildiMi == true)
+			{
+				if (tempPaper.acildiMi == false)
+				{
+					tempPaper.paperObject2.SetActive(false);
+					tempPaper.paperObject3.SetActive(true);
+					Vector3 tempScale = transform.localScale;
+					transform.DOScale(tempScale * 2.5f, .3f);
+					transform.localPosition = new Vector3(0, 1,transform.localPosition.z + PaperController.instance.distance);
+					PaperController.instance.distance += 5f;
+				}
+			}
+			else
+			{
+				transform.tag = "Untagged";
+				GetComponent<Collider>().enabled = false;
+				PaperController.instance.papers.Remove(gameObject);
+				int rnd = Random.Range(0,2);
+				float posX = 25;
+				if (rnd == 0) posX = -25;
+				Vector3 jumpPos = new Vector3(transform.position.x + posX, transform.position.y, transform.position.z+15); ;
+				transform.DOJump(jumpPos,20,1,4);
+				transform.DOShakeRotation(4);
+				
+			}
+			
 		}
 	}
 
 	void ControlPapers()
 	{
+		PaperController.instance.hazirKagitSayisi = 0;
 		foreach (GameObject obj in PaperController.instance.papers)
 		{
 			if(obj.GetComponent<Paper>().kesildiMi == true)
 			{
 				if (obj.GetComponent<Paper>().acildiMi == false)
 				{
+					GetComponent<Paper>().TickObj.SetActive(false);
 					PaperController.instance.hazirKagitSayisi++;
 					GameController.instance.scoreCarpani++;
 				}
@@ -158,11 +187,7 @@ public class Collission : MonoBehaviour
 		if(PaperController.instance.hazirKagitSayisi == 0)
 		{
 			GameController.instance.FinishGame();
-		}
-		else
-		{
-			StartCoroutine(OpenPapers());
-		}
+		}	
 	}
 
 	void DestroyPapers(int index)
