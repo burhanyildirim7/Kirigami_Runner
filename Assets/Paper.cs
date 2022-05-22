@@ -12,5 +12,6 @@ public class Paper : MonoBehaviour
     public bool acildiMi,kesildiMi,simlendiMi,suslendiMi;
     public GameObject KesParca1, KesParca2, KesParca3;
     public GameObject TickObj;
+    public GameObject confetiEffect;
     
 }

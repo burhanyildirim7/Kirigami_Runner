@@ -985,6 +985,7 @@ MonoBehaviour:
   KesParca2: {fileID: 0}
   KesParca3: {fileID: 0}
   TickObj: {fileID: 666529093}
+  confetiEffect: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
 --- !u!114 &912168674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,6 +1035,7 @@ MonoBehaviour:
   kare2Tam: {fileID: 987060864}
   kartane1Tam: {fileID: 1424715484}
   kartane2Tam: {fileID: 1302342824}
+  myParentObject: {fileID: 2018247884}
 --- !u!1 &919367615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4284596835022918958, guid: 68e2c1f07aff5554d8ea2ddcccc0ad7b, type: 3}

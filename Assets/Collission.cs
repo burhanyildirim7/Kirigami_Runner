@@ -96,6 +96,8 @@ public class Collission : MonoBehaviour
 			other.GetComponent<Collider>().enabled = false;
 			//GetComponent<Paper>().paperObject2.SetActive(false);
 			//GetComponent<Paper>().paperObject3.SetActive(true);
+			transform.parent = null;
+			PaperAc(other.transform.position);
 			GetComponent<Paper>().acildiMi = true;			
 			PaperController.instance.hazirKagitSayisi--;
 			if (PaperController.instance.hazirKagitSayisi == 0) GameController.instance.FinishGame();
@@ -142,12 +144,14 @@ public class Collission : MonoBehaviour
 			{
 				if (tempPaper.acildiMi == false)
 				{
-					tempPaper.paperObject2.SetActive(false);
-					tempPaper.paperObject3.SetActive(true);
-					Vector3 tempScale = transform.localScale;
-					transform.DOScale(tempScale * 2.5f, .3f);
-					transform.localPosition = new Vector3(0, 1,transform.localPosition.z + PaperController.instance.distance);
-					PaperController.instance.distance += 5f;
+					GameController.instance.isContinue = false;
+					transform.localPosition = new Vector3(0,1,transform.localPosition.z);
+					//tempPaper.paperObject2.SetActive(false);
+					//tempPaper.paperObject3.SetActive(true);
+					//Vector3 tempScale = transform.localScale;
+					//transform.DOScale(tempScale * 2.5f, .3f);
+					//transform.localPosition = new Vector3(0, 1,transform.localPosition.z + PaperController.instance.distance);
+					//PaperController.instance.distance += 5f;
 				}
 			}
 			else
@@ -159,12 +163,34 @@ public class Collission : MonoBehaviour
 				float posX = 25;
 				if (rnd == 0) posX = -25;
 				Vector3 jumpPos = new Vector3(transform.position.x + posX, transform.position.y, transform.position.z+15); ;
-				transform.DOJump(jumpPos,20,1,4);
-				transform.DOShakeRotation(4);
+				transform.DOJump(jumpPos, 20, 1, 4.1f).OnComplete(() => {
+					if (!transform.GetComponent<FirstPaperController>()) Destroy(transform.gameObject);
+				});
 				
+				transform.DOShakeRotation(4);
+				;
 			}
 			
 		}
+	}
+
+	void PaperAc(Vector3 position)
+	{
+
+		Paper tempPaper = GetComponent<Paper>();
+		tempPaper.TickObj.SetActive(false);
+		tempPaper.paperObject2.SetActive(false);
+		tempPaper.paperObject3.SetActive(true);
+		Vector3 tempScale = transform.localScale;
+		transform.DOScale(tempScale * 3f, .3f).SetEase(Ease.OutBounce);
+		float posY = 2;
+		if (LevelController.instance.kizMi || LevelController.instance.orumcekMi) posY = 2.2f;
+		else if (LevelController.instance.kare1Mi || LevelController.instance.kare2Mi) posY = 3.2f;
+		else if (LevelController.instance.kartanesi1Mi || LevelController.instance.kartanesi2Mi) posY = 3.7f;
+		transform.localPosition = position + new Vector3(0,posY,0);
+		transform.rotation = Quaternion.Euler(-90,0, 0);
+		Instantiate(tempPaper.confetiEffect, tempPaper.transform.position + new Vector3(-3, 0, 0), Quaternion.identity);
+		Instantiate(tempPaper.confetiEffect, tempPaper.transform.position + new Vector3(3, 0, 0), Quaternion.identity);
 	}
 
 	void ControlPapers()

@@ -75,6 +75,7 @@ MonoBehaviour:
   KesParca2: {fileID: 3538665714032070563}
   KesParca3: {fileID: 2285248209252775577}
   TickObj: {fileID: 2516114812224700431}
+  confetiEffect: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
 --- !u!1 &2285248209252775577
 GameObject:
   m_ObjectHideFlags: 0

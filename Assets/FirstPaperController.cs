@@ -15,6 +15,7 @@ public class FirstPaperController : MonoBehaviour
 	public GameObject kartane2Kes1, kartane2Kes2, kartane2Kes3;
 	[HideInInspector]public Paper paper;
 	public GameObject kizTam, orumcekTam, kare1Tam, kare2Tam, kartane1Tam, kartane2Tam;
+	public GameObject myParentObject;
 	private void Awake()
 	{
 		if (instance == null) instance = this;
@@ -25,8 +26,10 @@ public class FirstPaperController : MonoBehaviour
 	{
 		 paper = GetComponent<Paper>();
 	}
+
 	public void ChangePaper()
 	{
+		if(paper.paperObject1 != null)Destroy(paper.paperObject1);
 		if (LevelController.instance.kizMi)
 		{
 			GameObject first = Instantiate(kagitKiz, transform);
@@ -153,6 +156,8 @@ public class FirstPaperController : MonoBehaviour
 	public void StartingEvents()
 	{
 		Destroy(paper.paperObject1);
+		//Destroy(paper.paperObject2);
+		//Destroy(paper.paperObject3);
 		ChangePaper();
 		transform.localScale = Vector3.one;
 		kiz.SetActive(false);
@@ -177,6 +182,9 @@ public class FirstPaperController : MonoBehaviour
 		paper.acildiMi = false;
 		paper.kes = 0;
 		paper.type = 0;
+		transform.rotation = Quaternion.Euler(0,0,0);
+		transform.parent = myParentObject.transform;
+		GetComponent<Collider>().enabled = true;
 		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("Idle");
 		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("katla1");
 		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("katla2");
