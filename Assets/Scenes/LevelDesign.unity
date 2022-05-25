@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StylizedWater_Desktop
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010475527186, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010873081078, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -752,6 +756,8 @@ MonoBehaviour:
   KesParca1: {fileID: 0}
   KesParca2: {fileID: 0}
   KesParca3: {fileID: 0}
+  TickObj: {fileID: 0}
+  confetiEffect: {fileID: 0}
 --- !u!1 &955729541
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,14 +894,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.1564345, y: 0, z: 0, w: 0.98768836}
-  m_LocalPosition: {x: 0, y: 7, z: -2.5}
+  m_LocalRotation: {x: 0.097496085, y: 0, z: 0, w: 0.9952359}
+  m_LocalPosition: {x: 0, y: 9.28, z: -13.28}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 18, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.19, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -987,24 +993,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab99743c84ad38d46b4d40bc44e38d69, type: 3}
   m_PrefabInstance: {fileID: 1037376093}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1058015521 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5125523238042193311, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
-  m_PrefabInstance: {fileID: 4274805299578033094}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1058015525
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058015521}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.005263794, y: 0.0074576177, z: 0.013265324}
-  m_Center: {x: 0.0000040280866, y: 0.00088909053, z: -0.0034132916}
 --- !u!1 &1124119772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1468,7 @@ MonoBehaviour:
   papers:
   - {fileID: 912168666}
   movementDelay: 0.25
+  distance: 0
 --- !u!114 &2018247891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5904,17 +5893,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5125523238042193311, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
-      propertyPath: m_TagString
-      value: kes
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4544271070839358442, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
-    - {fileID: 6482291356430811536, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
-    - {fileID: 34124852648067249, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
-    - {fileID: 5077469542115958055, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
-    - {fileID: 2854553211258268113, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
-    - {fileID: 6365292580472607721, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f14e6eecf735ad749b8da8cf590e0a63, type: 3}
 --- !u!1 &5698147514659654033
 GameObject:
