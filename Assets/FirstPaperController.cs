@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class FirstPaperController : MonoBehaviour
 {
@@ -153,8 +154,26 @@ public class FirstPaperController : MonoBehaviour
 		kartane2.SetActive(false);
 	}
 
+	public void FinishingEvents()
+	{
+		kiz.SetActive(false);
+		orumcek.SetActive(false);
+		kare1.SetActive(false);
+		kare2.SetActive(false);
+		kartane1.SetActive(false);
+		kartane2.SetActive(false);
+		kizTam.SetActive(false);
+		orumcekTam.SetActive(false);
+		kare1Tam.SetActive(false);
+		kare2Tam.SetActive(false);
+		kartane1Tam.SetActive(false);
+		kartane2Tam.SetActive(false);
+	}
+
 	public void StartingEvents()
 	{
+		transform.DOKill();
+		PaperController.instance.CopuBosalt();
 		Destroy(paper.paperObject1);
 		//Destroy(paper.paperObject2);
 		//Destroy(paper.paperObject3);
@@ -185,6 +204,8 @@ public class FirstPaperController : MonoBehaviour
 		transform.rotation = Quaternion.Euler(0,0,0);
 		transform.parent = myParentObject.transform;
 		GetComponent<Collider>().enabled = true;
+		paper.TickObj.SetActive(false);
+
 		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("Idle");
 		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("katla1");
 		//paper.paperObject1.GetComponent<Animator>().ResetTrigger("katla2");

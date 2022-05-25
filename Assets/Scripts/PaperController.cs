@@ -7,6 +7,7 @@ public class PaperController : MonoBehaviour
 {
 	public static PaperController instance;
     public GameObject tozEfecti;
+    public Transform copKutusu;
 	private void Awake()
 	{
 		if (instance == null) instance = this;
@@ -114,7 +115,25 @@ public class PaperController : MonoBehaviour
         if (bitti) GameController.instance.FinishGame();
 	}
 
+    public void CopuBosalt()
+	{
+        StartCoroutine(DestroyPapers());
+	}
 
+
+    IEnumerator DestroyPapers()
+	{
+        int sayi = copKutusu.childCount;
+        for (int i = 0; i < sayi; i++)
+        {
+            if(copKutusu.childCount > 0)
+			{
+                copKutusu.GetChild(0).DOKill();
+                yield return new WaitForSeconds(.3f);
+                if(copKutusu.childCount > 0) Destroy(copKutusu.GetChild(0).gameObject);
+            }        
+        }
+    }
    
 
 

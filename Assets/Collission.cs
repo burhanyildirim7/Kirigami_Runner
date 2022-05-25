@@ -92,16 +92,28 @@ public class Collission : MonoBehaviour
 		}
 		else if (other.CompareTag("xs") && GetComponent<Paper>().kesildiMi && !GetComponent<Paper>().acildiMi)
 		{
+			PaperController.instance.papers.Remove(gameObject);
 			ControlPapers();
 			other.GetComponent<Collider>().enabled = false;
-			//GetComponent<Paper>().paperObject2.SetActive(false);
-			//GetComponent<Paper>().paperObject3.SetActive(true);
-			transform.parent = null;
+			
 			PaperAc(other.transform.position);
 			GetComponent<Paper>().acildiMi = true;			
 			PaperController.instance.hazirKagitSayisi--;
 			if (PaperController.instance.hazirKagitSayisi == 0) GameController.instance.FinishGame();
 			
+		}
+		else if (other.CompareTag("x10") && GetComponent<Paper>().kesildiMi && !GetComponent<Paper>().acildiMi)
+		{
+			other.GetComponent<Collider>().enabled = false;
+			PaperController.instance.papers.Remove(gameObject);
+			ControlPapers();
+			KarakterPaketiMovement.instance.moveSpeed = 0;;
+			
+			PaperAc(other.transform.position);
+			GetComponent<Paper>().acildiMi = true;
+			PaperController.instance.hazirKagitSayisi--;
+			StartCoroutine( AcVeGonder(other.transform.position));		
+
 		}
 		else if (other.CompareTag("ENGEL"))
 		{
@@ -133,10 +145,7 @@ public class Collission : MonoBehaviour
 			}		
 		}
 		else if (other.CompareTag("firstFinish"))
-		{
-			//other.GetComponent<Collider>().enabled = false;
-			//ControlPapers();
-			
+		{		
 			GameController.instance.isContinue = false;
 			Paper tempPaper = GetComponent<Paper>();
 			tempPaper.TickObj.SetActive(false);
@@ -146,12 +155,6 @@ public class Collission : MonoBehaviour
 				{
 					GameController.instance.isContinue = false;
 					transform.localPosition = new Vector3(0,1,transform.localPosition.z);
-					//tempPaper.paperObject2.SetActive(false);
-					//tempPaper.paperObject3.SetActive(true);
-					//Vector3 tempScale = transform.localScale;
-					//transform.DOScale(tempScale * 2.5f, .3f);
-					//transform.localPosition = new Vector3(0, 1,transform.localPosition.z + PaperController.instance.distance);
-					//PaperController.instance.distance += 5f;
 				}
 			}
 			else
@@ -174,6 +177,34 @@ public class Collission : MonoBehaviour
 		}
 	}
 
+	IEnumerator AcVeGonder(Vector3 firstPos)
+	{
+		
+		for (int i = PaperController.instance.papers.Count-1; i >= 0; i--)
+		{
+			PaperController.instance.papers[i].transform.DOMove(firstPos + new Vector3(0,2,0),.5f)
+				.OnComplete(() => {
+					if(!PaperController.instance.papers[i].GetComponent<FirstPaperController>())
+					PaperController.instance.papers[i].transform.parent = PaperController.instance.copKutusu;
+					Paper tempPaper = PaperController.instance.papers[i].GetComponent<Paper>();
+					tempPaper.paperObject2.SetActive(false);
+					tempPaper.paperObject3.SetActive(true);
+					Vector3 jumpPos = new Vector3(0, 30, transform.position.z + 60);
+					PaperController.instance.papers[i].transform.DOJump(jumpPos,-15,1,10f);
+					PaperController.instance.papers[i].transform.DORotate(new Vector3(-45,0,0),5f);
+					Vector3 tempScale = transform.localScale;
+					PaperController.instance.papers[i].transform.DOScale(tempScale, .3f).SetEase(Ease.OutBounce);
+					Instantiate(tempPaper.confetiEffect, tempPaper.transform.position + new Vector3(-3, 0, 0), Quaternion.identity);
+					Instantiate(tempPaper.confetiEffect, tempPaper.transform.position + new Vector3(3, 0, 0), Quaternion.identity);
+
+				});
+			yield return new WaitForSeconds(.6f);
+		}
+		GameController.instance.FinishGame();
+
+	}
+
+
 	void PaperAc(Vector3 position)
 	{
 
@@ -187,10 +218,11 @@ public class Collission : MonoBehaviour
 		if (LevelController.instance.kizMi || LevelController.instance.orumcekMi) posY = 2.2f;
 		else if (LevelController.instance.kare1Mi || LevelController.instance.kare2Mi) posY = 3.2f;
 		else if (LevelController.instance.kartanesi1Mi || LevelController.instance.kartanesi2Mi) posY = 3.7f;
-		transform.localPosition = position + new Vector3(0,posY,0);
+		transform.position = position + new Vector3(0,posY,0);
 		transform.rotation = Quaternion.Euler(-90,0, 0);
 		Instantiate(tempPaper.confetiEffect, tempPaper.transform.position + new Vector3(-3, 0, 0), Quaternion.identity);
 		Instantiate(tempPaper.confetiEffect, tempPaper.transform.position + new Vector3(3, 0, 0), Quaternion.identity);
+		if (!GetComponent<FirstPaperController>()) transform.parent = PaperController.instance.copKutusu;
 	}
 
 	void ControlPapers()

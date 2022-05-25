@@ -2300,6 +2300,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9575cb337cafbfa409c2a56201a70367, type: 2}
+    - target: {fileID: 6036886216362496058, guid: 1ab09872156eff04caeb310d38553d85, type: 3}
+      propertyPath: m_TagString
+      value: x10
+      objectReference: {fileID: 0}
     - target: {fileID: 8553221529636949329, guid: 1ab09872156eff04caeb310d38553d85, type: 3}
       propertyPath: m_RootOrder
       value: 3

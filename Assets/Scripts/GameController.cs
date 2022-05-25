@@ -45,7 +45,6 @@ public class GameController : MonoBehaviour
     public void FinishGame()
 	{
         KarakterPaketiMovement.instance.moveSpeed = 0f;
-        Debug.Log("FINISH GAME");
         isContinue = false;
         if (scoreCarpani == 0) scoreCarpani = 1;
         ScoreCarp(scoreCarpani);

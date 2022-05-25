@@ -69,7 +69,7 @@ public class UIController : MonoBehaviour
     // NEXT LEVEL TUSUNA BASILDIGINDA... WIN EKRANINDAKI BUTON
     public void NextLevelButtonClick()
     {
-        Debug.Log("next level button");
+
         SetTapToStartScoreText();
         TapToStartPanel.SetActive(true);
         WinPanel.SetActive(false);
