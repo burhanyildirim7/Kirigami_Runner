@@ -21,7 +21,7 @@ public class LevelController : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         totalLevelNo = PlayerPrefs.GetInt("level");
         if (totalLevelNo == 0)
         {
@@ -72,15 +72,15 @@ public class LevelController : MonoBehaviour
     {
         KarakterPaketiMovement.instance.transform.position = Vector3.zero;
         int count = PaperController.instance.papers.Count;
-		for (int i = 1; i < count; i++)
-		{
+        for (int i = 1; i < count; i++)
+        {
             GameObject obj = PaperController.instance.papers[i];
             Destroy(obj);
-		}
+        }
         PaperController.instance.papers.Clear();
         PaperController.instance.papers.Add(firstPaper);
-        firstPaper.transform.position = new Vector3(0,1,0);
-		Elephant.LevelCompleted(totalLevelNo);
+        firstPaper.transform.position = new Vector3(0, 1, 0);
+        Elephant.LevelCompleted(totalLevelNo);
         Destroy(currentLevelObj);
         IncreaseLevelNo();
         LevelStartingEvents();
